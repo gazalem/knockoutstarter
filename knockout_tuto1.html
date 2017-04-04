@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+  <title>Firts Knockout Example</title>
+  <link rel="stylesheet" href="http://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+  <!-- This is a *view* - HTML markup that defines the appearance of your UI -->
+
+  <p>First name: <strong data-bind="text: firstName">todo</strong></p>
+  <p>Last name: <strong data-bind="text: lastName">todo</strong></p>
+  <p>Full name: <strong data-bind="text: fullName"></strong></p>
+
+  <p>First name: <input type="text" data-bind="value: firstName"></p>
+  <p>Last name: <input type="text" data-bind="value: lastName"></p>
+
+  <button data-bind="click: capitalizeLastName">Go Caps</button>
+
+  <!-- jQuery CDN -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-3.1.1.min.js"></script>
+  <script>
+    // Fallback to loading jQuery from a local path if the CDN is unavailable
+    (window.jQuery || document.write('<script src="./js/plugins/jquery/jquery-3.1.1.min.js"><\/script>'));
+  </script>
+  <!-- knockout CDN -->
+  <script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.4.2.js"></script>
+  <script>
+    // This is a simple *viewmodel* - JavaScript that defines the data and behavior of your UI
+    function AppViewModel() {
+        this.firstName = ko.observable("Bert");
+        this.lastName = ko.observable("Bertington");
+        this.fullName = ko.computed(function() {
+          return this.firstName() + " " + this.lastName();
+        }, this);
+        this.capitalizeLastName = function () {
+          let upperLastName = this.lastName(); // read current value
+          this.lastName(upperLastName.toUpperCase()); // write back a modified value
+        };
+    }
+
+    // Activates knockout.js
+    ko.applyBindings(new AppViewModel());
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+  <title>Knockout Starter Guide</title>
+  <!-- CSS Here -->
+  <link rel="stylesheet" href="./css/plugins/normalize/normalize.css">
+  <link rel="stylesheet" href="./css/plugins/bootstrap/bootstrap.min.css">
+</head>
+<body>
+  <div id="content">
+    <div id="productView" data-bind="with: selectedProduct">
+      <p>SKU: <span data-bind="text: sku"></span></p>
+      <p>Description: <span data-bind="text: description"></span></p>
+      <p>Cost: <span data-bind="text: cost"></span></p>
+      <p>Price: <span data-bind="text: price"></span></p>
+      <p>Quantity: <span data-bind="text: quantity"></span></p>
+    </div>
+    <hr>
+    <!-- add validation to cost, price and quantity to safe data integrity -->
+    <form action="" class="form-group">
+      <fieldset>
+        <legend>Product Details</legend>
+        <label for="">SKU:
+          <input type="text" data-bind="value: sku">
+        </label>
+        <label for="">Description:
+          <input type="text" data-bind="value: description">
+        </label>
+        <label for="">Cost:
+          <input type="text" data-bind="value: cost">
+        </label>
+        <label for="">Price:
+          <input type="text" data-bind="value: price">
+        </label>
+        <label for="">Quantity:
+          <input type="text" data-bind="value: quantity">
+        </label>
+      </fieldset>
+    </form>
+    <div id="buttonContainer">
+      <button class="btn btn-success" data-bind="click: addNewProdcut, visible: (selectedProduct() ? false : true)">Add</button>
+      <button class="btn btn-danger" data-bind="click: removeProduct, visible: (selectedProduct() ? true : false)">Remove</button>
+      <button class="btn btn-primary" data-bind="click: doneEditingProduct, visible: (selectedProduct() ? true : false)">Done</button>
+    </div>
+  </div>
+  <!-- JavaScript Files Here -->
+  <script src="./js/plugins/knockout/knockout-3.4.2.debug.js"></script>
+  <script src="./js/App.js" type="text/javascript"></script>
+</body>
+</html>

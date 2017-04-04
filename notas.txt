@@ -1,0 +1,14 @@
+Custodia compartida de los niños - Rene Samuel Lioeanjie Tang 4 horizontes
+  Dos semanas esta con el papá
+  Dos semanas esta con la mamá - Y ella lo va a dejar en auto
+
+Bus App
+  Disponer la opcion de que el conductor pueda notificar incidencias en la via
+    • Choques
+    • Flat
+    • Calles cerradas
+    • Traffic JAM
+    • Desperfecto mecanico
+  † A quien damos esta información a los padres o la reservamos solo para la escuela?
+
+  http://www.html5boilerplate.com/
