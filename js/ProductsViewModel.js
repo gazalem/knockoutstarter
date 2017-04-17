@@ -7,10 +7,19 @@
     self.selectedProduct = ko.observable();
     // the Product collection or product list
     self.productCollection = ko.observableArray([]);
+    // product list view of selected product
+    self.listViewSelectedItem = ko.observable(null);
+    // Push any changes in the list view to our
+    // main selectedProduct
+    self.listViewSelectedItem.subscribe(function (product) {
+      if (product) {
+        self.selectedProduct(product);
+      }
+    });
     // create a new product and setup for editing
     self.addNewProduct = function () {
       // create an instance of a product
-      let p = myApp.Product();
+      let p = new myApp.Product();
       // set the selected product to our new instance
       self.selectedProduct(p);
     };

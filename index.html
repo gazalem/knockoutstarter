@@ -11,6 +11,10 @@
 </head>
 <body>
   <div id="content">
+    <div class="productListView">
+      <!--select#productList[size="10" style="min-width: 120px;" data-bind="options: producCollection, value: listViewSelectedItem, optionsText: sku"]-->
+      <select id="productList" size="10" data-bind="options: producCollection, value: listViewSelectedItem, optionsText: skuAndDescription"></select>
+    </div>
     <div id="productView" data-bind="with: selectedProduct">
       <p>SKU: <span data-bind="text: sku"></span></p>
       <p>Description: <span data-bind="text: description"></span></p>
