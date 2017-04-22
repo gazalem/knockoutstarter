@@ -1,7 +1,7 @@
 // Product ViewModel
 (function (myApp) {
   // constructor function
-  function ProductViewModel() {
+  function ProductsViewModel() {
     let self = this;
     // the Product that we want to add/edit
     self.selectedProduct = ko.observable();
@@ -58,5 +58,5 @@
     };
   }
   // add our ViewModel to the public namespace
-  myApp.ProductViewModel = ProductViewModel;
+  myApp.ProductsViewModel = ProductsViewModel;
 } (window.myApp));
