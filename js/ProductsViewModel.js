@@ -1,16 +1,25 @@
 // Product ViewModel
 (function (myApp) {
   // constructor function
-  function ProductViewModel() {
+  function ProductsViewModel() {
     let self = this;
     // the Product that we want to add/edit
     self.selectedProduct = ko.observable();
     // the Product collection or product list
     self.productCollection = ko.observableArray([]);
+    // product list view of selected product
+    self.listViewSelectedItem = ko.observable(null);
+    // Push any changes in the list view to our
+    // main selectedProduct
+    self.listViewSelectedItem.subscribe(function (product) {
+      if (product) {
+        self.selectedProduct(product);
+      }
+    });
     // create a new product and setup for editing
     self.addNewProduct = function () {
       // create an instance of a product
-      let p = myApp.Product();
+      let p = new myApp.Product();
       // set the selected product to our new instance
       self.selectedProduct(p);
     };
@@ -49,5 +58,5 @@
     };
   }
   // add our ViewModel to the public namespace
-  myApp.ProductViewModel = ProductViewModel;
+  myApp.ProductsViewModel = ProductsViewModel;
 } (window.myApp));
